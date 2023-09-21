@@ -4,14 +4,15 @@ import 'package:sizer/sizer.dart';
 // import '../Pages/Onboarding/slashscreen1.dart';
 import 'app_style.dart';
 
-class Buttonproceed extends StatelessWidget {
+class ButtonProceed extends StatelessWidget {
   bool? checkDetails;
   IconData? icon;
   VoidCallback ontap;
   String text;
   bool? checkIcon;
-  Buttonproceed(
-      {required this.ontap,
+  ButtonProceed(
+      {super.key,
+      required this.ontap,
       required this.text,
       this.checkDetails,
       this.icon,
@@ -52,12 +53,12 @@ class Buttonproceed extends StatelessWidget {
 
 class ButtonProceed1 extends StatelessWidget {
   bool? checkDetails;
-  VoidCallback ontap;
+  VoidCallback onTap;
   String text;
   TextStyle style;
   Color? buttonColor;
   ButtonProceed1(
-      {required this.ontap,
+      {required this.onTap,
       required this.text,
       this.checkDetails,
       required this.style,
@@ -66,7 +67,7 @@ class ButtonProceed1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: ontap,
+      onTap: onTap,
       child: Container(
         width: double.infinity,
         height: 7.h,

@@ -2,10 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
 
 import '../../Resources/Routes/routes_name.dart';

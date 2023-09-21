@@ -41,7 +41,6 @@ dependencies:
   sizer:
   google_fonts:
   connectivity_plus: ^2.2.1
-  toggle_switch: ^2.1.0
 
 dev_dependencies:
   flutter_test:

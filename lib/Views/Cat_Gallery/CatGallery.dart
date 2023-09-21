@@ -1,9 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
-import 'package:toggle_switch/toggle_switch.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
 
 class CategoryGallery extends StatefulWidget {

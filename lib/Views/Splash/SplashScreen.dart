@@ -23,37 +23,37 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  StreamSubscription? internetconnection;
-  bool isoffline = false;
+  StreamSubscription? internetConnection;
+  bool isOffLine = false;
 
   @override
   void initState() {
-    log("isOffline $isoffline");
-    log("AFAF ${internetconnection}");
-    internetconnection = Connectivity()
+    log("isOffline $isOffLine");
+    log("AFAF $internetConnection");
+    internetConnection = Connectivity()
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
-      // whenevery connection status is changed.
+      // whenVery connection status is changed.
       if (result == ConnectivityResult.none) {
         //there is no any connection
         setState(() {
-          isoffline = true;
+          isOffLine = true;
         });
       } else if (result == ConnectivityResult.mobile) {
         //connection is mobile data network
         setState(() {
-          isoffline = false;
+          isOffLine = false;
         });
         navigate();
       } else if (result == ConnectivityResult.wifi) {
         //connection is from wifi
         setState(() {
-          isoffline = false;
+          isOffLine = false;
         });
 
         navigate();
       }
-    }); // using this listiner, you can get the medium of connection as well.
+    }); // using this listener, you can get the medium of connection as well.
 
     super.initState();
   }
@@ -61,8 +61,8 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   dispose() {
     super.dispose();
-    internetconnection!.cancel();
-    //cancel internent connection subscription after you are done
+    internetConnection!.cancel();
+    //cancel internet connection subscription after you are done
   }
 
   @override
@@ -121,8 +121,8 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                   Container(
                     child:
-                        errmsg("No Internet Connection Available", isoffline),
-                    //to show internet connection message on isoffline = true.
+                        errorMsg("No Internet Connection Available", isOffLine),
+                    //to show internet connection message on offline = true.
                   ),
                   Container(
                       //this is your content
@@ -136,7 +136,7 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
-  Widget errmsg(String text, bool show) {
+  Widget errorMsg(String text, bool show) {
     //error message widget.
     if (show == true) {
       //if error is true then show error message box

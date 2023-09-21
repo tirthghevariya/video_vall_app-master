@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:sizer/sizer.dart';
 
 import 'app_style.dart';
@@ -89,9 +86,9 @@ class WidgetAlertText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: Color(0XFFD2D8E8).withOpacity(0.7),
+          color: const Color(0XFFD2D8E8).withOpacity(0.7),
           borderRadius: BorderRadius.circular(5)),
       child: Row(
         children: [
