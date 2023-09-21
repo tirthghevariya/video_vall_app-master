@@ -1,23 +1,19 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
 
-import '../../Resources/Routes/routes_name.dart';
-
-class GenderSelection extends StatefulWidget {
-  const GenderSelection({Key? key}) : super(key: key);
+class CategoryGallery extends StatefulWidget {
+  const CategoryGallery({Key? key}) : super(key: key);
 
   @override
-  State<GenderSelection> createState() => _GenderSelectionState();
+  State<CategoryGallery> createState() => _CategoryGalleryState();
 }
 
-class _GenderSelectionState extends State<GenderSelection> {
+class _CategoryGalleryState extends State<CategoryGallery> {
   bool isMaleSelected = true; // Initialize to male
   void _toggleGender() {
     setState(() {
@@ -41,18 +37,6 @@ class _GenderSelectionState extends State<GenderSelection> {
       body: SizedBox(
         child: Stack(
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 80.h,
-                  child: Image.asset(
-                    'assets/images/gender_shadow.png',
-                  ),
-                ),
-              ],
-            ),
             Stack(
               children: [
                 Positioned(
@@ -147,7 +131,7 @@ class _GenderSelectionState extends State<GenderSelection> {
                       ),
                     ),
                     onPressed: () {
-                      Get.toNamed(RoutesName.catGallery);
+                      // Get.toNamed(RoutesName.GenderSelection);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

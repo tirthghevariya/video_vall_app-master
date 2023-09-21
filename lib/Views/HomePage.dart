@@ -20,7 +20,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        backgroundColor: Colors.blue,
+        backgroundColor: Styles.primaryColor,
         leading: Container(),
         leadingWidth: 0,
         actions: [
@@ -55,7 +55,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
             Spacer(),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
+                backgroundColor: Styles.primaryColor,
                 fixedSize: Size(double.infinity, 30),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),

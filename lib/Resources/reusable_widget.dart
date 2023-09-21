@@ -50,7 +50,7 @@ class backWidget extends StatelessWidget {
       onTap: onTap,
       child: Icon(
         Icons.arrow_back_ios,
-        color: Styles.primarynormaltextcolor,
+        color: Styles.primaryNormalTextColor,
         size: 3.3.h,
       ),
     );
@@ -85,7 +85,7 @@ class CircleWidget extends StatelessWidget {
 
 class WidgetAlertText extends StatelessWidget {
   String text;
-  WidgetAlertText({required this.text});
+  WidgetAlertText({super.key, required this.text});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -97,7 +97,7 @@ class WidgetAlertText extends StatelessWidget {
         children: [
           Icon(
             Icons.error_outline,
-            color: Styles.primarybluecolor,
+            color: Styles.primaryBlueColor,
             size: 7.w,
           ),
           Container(
@@ -106,7 +106,7 @@ class WidgetAlertText extends StatelessWidget {
                 text,
                 textAlign: TextAlign.center,
                 style: Styles.heading3db
-                    .copyWith(height: 1.2, color: Styles.primarybluecolor),
+                    .copyWith(height: 1.2, color: Styles.primaryBlueColor),
               ))
         ],
       ),
@@ -216,27 +216,27 @@ class TextNumberField {
   //  }
 
   static TextStyle inputStyle =
-      Styles.heading2obs.copyWith(color: Styles.primarybluecolor);
+      Styles.heading2obs.copyWith(color: Styles.primaryBlueColor);
 }
 
 class TextNameField {
   static TextStyle inputStyle =
-      Styles.heading2obs.copyWith(color: Styles.primarybluecolor);
+      Styles.heading2obs.copyWith(color: Styles.primaryBlueColor);
   static InputDecoration inputDecorationNameField(
       {required String name, IconData? iconData}) {
     return InputDecoration(
         filled: true,
-        fillColor: Styles.colorformblue,
+        fillColor: Styles.colorFormBlue,
         contentPadding: EdgeInsets.symmetric(vertical: 1.8.h, horizontal: 3.w),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(1.18.h),
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         prefixIcon: Icon(iconData),
         hintText: name,
         hintStyle: Styles.heading2form
@@ -248,7 +248,7 @@ class TextNameField {
 
 class TextPinField {
   static TextStyle inputStyle =
-      Styles.heading2obs.copyWith(color: Styles.primarybluecolor);
+      Styles.heading2obs.copyWith(color: Styles.primaryBlueColor);
   static String? validatorPinField(value) {
     if (value!.isEmpty) {
       return 'Please enter your pin code';
@@ -262,17 +262,17 @@ class TextPinField {
   static InputDecoration inputDecorationPinField() {
     return InputDecoration(
         filled: true,
-        fillColor: Styles.colorformblue,
+        fillColor: Styles.colorFormBlue,
         contentPadding: EdgeInsets.symmetric(vertical: 1.8.h, horizontal: 4.w),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(1.18.h),
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         hintText: "000000",
         hintStyle: Styles.heading2form
 
@@ -283,7 +283,7 @@ class TextPinField {
 
 class AddressFormField {
   static TextStyle inputStyle =
-      Styles.heading2obs.copyWith(color: Styles.primarybluecolor);
+      Styles.heading2obs.copyWith(color: Styles.primaryBlueColor);
   static String? validatorAddressField(value) {
     if (value!.isEmpty) {
       return 'Please enter your address';
@@ -294,17 +294,17 @@ class AddressFormField {
   static InputDecoration inputDecorationAddressField() {
     return InputDecoration(
         filled: true,
-        fillColor: Styles.colorformblue,
+        fillColor: Styles.colorFormBlue,
         contentPadding: EdgeInsets.symmetric(vertical: 1.8.h, horizontal: 3.w),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(1.18.h),
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         hintText: "Enter your address...",
         hintStyle: Styles.heading2form
 
@@ -315,7 +315,7 @@ class AddressFormField {
 
 class AdharFormField {
   static TextStyle inputStyle =
-      Styles.heading2obs.copyWith(color: Styles.primarybluecolor);
+      Styles.heading2obs.copyWith(color: Styles.primaryBlueColor);
   static String? validatorAdharFormField(value) {
     if (value!.isEmpty) {
       return 'Please enter your Aadhaar number';
@@ -332,17 +332,17 @@ class AdharFormField {
   static InputDecoration inputDecorationAdharFormField() {
     return InputDecoration(
         filled: true,
-        fillColor: Styles.colorformblue,
+        fillColor: Styles.colorFormBlue,
         contentPadding: EdgeInsets.symmetric(vertical: 1.8.h, horizontal: 3.w),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(1.18.h),
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(1.18.h),
-            borderSide: BorderSide(width: 1, color: Styles.colorformblue)),
+            borderSide: BorderSide(width: 1, color: Styles.colorFormBlue)),
         hintText: "0000 0000 0000",
         hintStyle: Styles.heading2form
 

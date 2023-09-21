@@ -5,7 +5,7 @@ import 'package:sizer/sizer.dart';
 import 'app_style.dart';
 
 class Buttonproceed extends StatelessWidget {
-  bool? checkdetails;
+  bool? checkDetails;
   IconData? icon;
   VoidCallback ontap;
   String text;
@@ -13,7 +13,7 @@ class Buttonproceed extends StatelessWidget {
   Buttonproceed(
       {required this.ontap,
       required this.text,
-      this.checkdetails,
+      this.checkDetails,
       this.icon,
       this.checkIcon});
 
@@ -26,9 +26,9 @@ class Buttonproceed extends StatelessWidget {
         height: 7.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: checkdetails == true || checkdetails == null
-                ? Styles.primarybluecolor
-                : Color(0XFFD2D8E8).withOpacity(0.3)),
+            color: checkDetails == true || checkDetails == null
+                ? Styles.primaryBlueColor
+                : const Color(0XFFD2D8E8).withOpacity(0.3)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -38,11 +38,11 @@ class Buttonproceed extends StatelessWidget {
             ),
             checkIcon == null
                 ? Icon(
-                    icon == null ? Icons.arrow_forward_ios : icon,
+                    icon ?? Icons.arrow_forward_ios,
                     color: Colors.white,
                     size: 4.w,
                   )
-                : SizedBox()
+                : const SizedBox()
           ],
         ),
       ),
@@ -50,18 +50,18 @@ class Buttonproceed extends StatelessWidget {
   }
 }
 
-class Buttonproceed1 extends StatelessWidget {
-  bool? checkdetails;
+class ButtonProceed1 extends StatelessWidget {
+  bool? checkDetails;
   VoidCallback ontap;
   String text;
   TextStyle style;
-  Color? buttoncolor;
-  Buttonproceed1(
+  Color? buttonColor;
+  ButtonProceed1(
       {required this.ontap,
       required this.text,
-      this.checkdetails,
+      this.checkDetails,
       required this.style,
-      this.buttoncolor});
+      this.buttonColor});
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +72,7 @@ class Buttonproceed1 extends StatelessWidget {
         height: 7.h,
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
-            color: buttoncolor == null ? Styles.primarybluecolor : buttoncolor),
+            color: buttonColor == null ? Styles.primaryBlueColor : buttonColor),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

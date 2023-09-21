@@ -6,6 +6,7 @@ import 'package:video_vall_app/Views/Gender_Screen/gender_selection_view.dart';
 import 'package:video_vall_app/Views/HomePage.dart';
 import 'package:video_vall_app/Views/Splash/SplashScreen.dart';
 
+import '../../Views/Cat_Gallery/CatGallery.dart';
 import '../Transitions/transition.dart';
 
 class AppRoutes {
@@ -23,6 +24,11 @@ class AppRoutes {
         GetPage(
             name: RoutesName.GenderSelection,
             page: () => GenderSelection(),
+            transition: AppTransition.transition,
+            transitionDuration: AppTransition.duration),
+        GetPage(
+            name: RoutesName.catGallery,
+            page: () => CategoryGallery(),
             transition: AppTransition.transition,
             transitionDuration: AppTransition.duration),
       ];
