@@ -1,9 +1,7 @@
-// ignore_for_file: prefer_const_constructors
 import 'package:sizer/sizer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:video_vall_app/Resources/Routes/routes.dart';
-import 'package:video_vall_app/Views/Splash/SplashScreen.dart';
 import 'Resources/Routes/routes_name.dart';
 
 void main() {

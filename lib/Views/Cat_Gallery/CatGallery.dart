@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
+
+import '../../Resources/Routes/routes_name.dart';
 
 class CategoryGallery extends StatefulWidget {
   const CategoryGallery({Key? key}) : super(key: key);
@@ -12,13 +13,6 @@ class CategoryGallery extends StatefulWidget {
 }
 
 class _CategoryGalleryState extends State<CategoryGallery> {
-  bool isMaleSelected = true; // Initialize to male
-  void _toggleGender() {
-    setState(() {
-      isMaleSelected = !isMaleSelected;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,116 +26,109 @@ class _CategoryGalleryState extends State<CategoryGallery> {
           style: Styles.appBarStyle,
         ),
       ),
-      body: SizedBox(
-        child: Stack(
-          children: [
-            Stack(
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                "Global Video Call",
+                textAlign: TextAlign.center,
+                style: Styles.appBarStyle.copyWith(fontSize: 22.sp),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 3.h,
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: 12.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Positioned(
-                  top: 20.h,
-                  left: 10.w,
-                  child: Text(
-                    "Find exactly the",
-                    textAlign: TextAlign.center,
-                    style: Styles.findExactSame,
-                  ),
-                ),
-                Positioned(
-                  top: 25.h,
-                  left: 10.w,
-                  child: Text(
-                    "Right Partner \nfor you",
-                    textAlign: TextAlign.start,
-                    style: Styles.appBarStyle.copyWith(fontSize: 20.sp),
-                  ),
-                ),
-                Positioned(
-                  top: 50.h,
-                  left: 10.w,
-                  right: 10.w,
-                  child: Text(
-                    "i am interested in".toUpperCase(),
-                    textAlign: TextAlign.center,
-                    style: Styles.appBarStyle.copyWith(fontSize: 16.sp),
-                  ),
-                ),
-                Positioned(
-                  top: 58.h,
-                  left: 5.w,
-                  right: 5.w,
-                  child: GestureDetector(
-                    onTap: _toggleGender,
-                    child: Container(
-                      height: 6.h,
-                      width: 80.w,
-                      decoration: BoxDecoration(
-                        color: Styles.switchColor,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Container(
-                            height: 6.h,
-                            width: 45.w,
-                            decoration: BoxDecoration(
-                              color: isMaleSelected
-                                  ? Styles.primaryColor
-                                  : Styles.switchColor,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "MAN",
-                                style: Styles.appBarStyle
-                                    .copyWith(fontSize: 14.sp),
-                              ),
-                            ),
-                          ),
-                          Container(
-                            height: 7.h,
-                            width: 45.w,
-                            decoration: BoxDecoration(
-                                color: isMaleSelected
-                                    ? Styles.switchColor
-                                    : Styles.primaryColor),
-                            child: Center(
-                              child: Text(
-                                "WOMAN",
-                                style: Styles.appBarStyle
-                                    .copyWith(fontSize: 14.sp),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  top: 75.h,
-                  left: 5.w,
-                  right: 5.w,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Styles.primaryColor,
-                      fixedSize: Size(double.infinity, 30),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0),
-                      ),
-                    ),
-                    onPressed: () {
-                      // Get.toNamed(RoutesName.GenderSelection);
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("Continue", style: Styles.commonButtonTheme),
-                      ],
-                    ),
-                  ),
+                Text(
+                  'Select Call Type?',
+                  style: Styles.findExactSame
+                      .copyWith(fontSize: 18.sp, fontWeight: FontWeight.w700),
                 ),
               ],
             ),
-          ],
+          ),
+          SizedBox(
+            height: 3.h,
+          ),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 5.w,
+              mainAxisSpacing: 5.w,
+              padding: EdgeInsets.symmetric(
+                  horizontal: 2.w), // Number of columns in the grid
+              children: const <Widget>[
+                // List of items in the grid
+                MyGridItem('Live Video Call', image: 'assets/cat_image/1.jpg'),
+                MyGridItem('Random Call', image: 'assets/cat_image/2.jpg'),
+                MyGridItem('Global video Call',
+                    image: 'assets/cat_image/3.jpg'),
+                MyGridItem('Stranger Call', image: 'assets/cat_image/4.jpg'),
+                MyGridItem('Live Girls', image: 'assets/cat_image/5.jpg'),
+                MyGridItem('Instant Call', image: 'assets/cat_image/6.jpg'),
+                MyGridItem('Only Girls', image: 'assets/cat_image/7.jpg'),
+                MyGridItem('Out of our Country Call',
+                    image: 'assets/cat_image/8.jpg'),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class MyGridItem extends StatelessWidget {
+  final String text;
+  final String image;
+
+  const MyGridItem(this.text, {super.key, required this.image});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.toNamed(RoutesName.matchCall);
+      },
+      child: Container(
+        height: 30.h, // Increase the height as desired
+        decoration: BoxDecoration(
+          color: Colors.red,
+          borderRadius: BorderRadius.circular(6.w),
+          border: Border.all(
+            color: Styles.primaryColor,
+            width: 2.0,
+          ),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(6.w),
+          child: Stack(
+            children: [
+              Image(
+                height: 100.h,
+                width: 100.w,
+                fit: BoxFit.cover,
+                image: AssetImage(image),
+              ),
+              Positioned(
+                bottom: 1.h,
+                right: 0,
+                left: 0,
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: Styles.appBarStyle,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

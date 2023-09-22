@@ -5,6 +5,7 @@ class RoutesName {
   static const String splashScreen2 = '/splashScree2';
   static const String GenderSelection = '/GenderSelection';
   static const String catGallery = '/CategoryGallery';
+  static const String matchCall = '/MatchCallScreen';
 
 // static const String phoneScreen='/phoneScreen';
   // static const String otpScreen='/otpScreen';

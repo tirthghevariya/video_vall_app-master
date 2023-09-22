@@ -7,6 +7,7 @@ import 'package:video_vall_app/Views/HomePage.dart';
 import 'package:video_vall_app/Views/Splash/SplashScreen.dart';
 
 import '../../Views/Cat_Gallery/CatGallery.dart';
+import '../../Views/Match_Call/match_call_screen.dart';
 import '../Transitions/transition.dart';
 
 class AppRoutes {
@@ -29,6 +30,11 @@ class AppRoutes {
         GetPage(
             name: RoutesName.catGallery,
             page: () => CategoryGallery(),
+            transition: AppTransition.transition,
+            transitionDuration: AppTransition.duration),
+        GetPage(
+            name: RoutesName.matchCall,
+            page: () => MatchCallScreen(),
             transition: AppTransition.transition,
             transitionDuration: AppTransition.duration),
       ];
