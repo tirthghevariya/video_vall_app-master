@@ -8,6 +8,7 @@ import 'package:video_vall_app/Views/Splash/SplashScreen.dart';
 
 import '../../Views/Cat_Gallery/CatGallery.dart';
 import '../../Views/Match_Call/match_call_screen.dart';
+import '../../Views/video_call_screen/all_video_screen.dart';
 import '../Transitions/transition.dart';
 
 class AppRoutes {
@@ -23,7 +24,7 @@ class AppRoutes {
             transition: AppTransition.transition,
             transitionDuration: AppTransition.duration),
         GetPage(
-            name: RoutesName.GenderSelection,
+            name: RoutesName.genderSelection,
             page: () => GenderSelection(),
             transition: AppTransition.transition,
             transitionDuration: AppTransition.duration),
@@ -35,6 +36,11 @@ class AppRoutes {
         GetPage(
             name: RoutesName.matchCall,
             page: () => MatchCallScreen(),
+            transition: AppTransition.transition,
+            transitionDuration: AppTransition.duration),
+        GetPage(
+            name: RoutesName.videoCallScreen,
+            page: () => VideoCallScreen(),
             transition: AppTransition.transition,
             transitionDuration: AppTransition.duration),
       ];

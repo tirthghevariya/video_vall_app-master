@@ -62,7 +62,7 @@ class _SplashScreen2State extends State<SplashScreen2> {
                 ),
               ),
               onPressed: () {
-                Get.toNamed(RoutesName.GenderSelection);
+                Get.toNamed(RoutesName.genderSelection);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,

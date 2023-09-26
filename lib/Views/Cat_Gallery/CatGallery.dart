@@ -59,11 +59,15 @@ class _CategoryGalleryState extends State<CategoryGallery> {
           ),
           Expanded(
             child: GridView.count(
+              childAspectRatio: 1 / 1.40,
               crossAxisCount: 2,
               crossAxisSpacing: 5.w,
               mainAxisSpacing: 5.w,
-              padding: EdgeInsets.symmetric(
-                  horizontal: 2.w), // Number of columns in the grid
+              shrinkWrap: true,
+              padding: EdgeInsets.only(
+                  left: 2.w,
+                  right: 2.w,
+                  bottom: 5.h), // Number of columns in the grid
               children: const <Widget>[
                 // List of items in the grid
                 MyGridItem('Live Video Call', image: 'assets/cat_image/1.jpg'),
@@ -97,39 +101,52 @@ class MyGridItem extends StatelessWidget {
       onTap: () {
         Get.toNamed(RoutesName.matchCall);
       },
-      child: Container(
-        height: 30.h, // Increase the height as desired
-        decoration: BoxDecoration(
-          color: Colors.red,
-          borderRadius: BorderRadius.circular(6.w),
-          border: Border.all(
-            color: Styles.primaryColor,
-            width: 2.0,
-          ),
-        ),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(6.w),
-          child: Stack(
-            children: [
-              Image(
-                height: 100.h,
-                width: 100.w,
-                fit: BoxFit.cover,
-                image: AssetImage(image),
+      child: Stack(
+        children: [
+          Container(
+            height: 80.h, // Increase the height as desired
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(6.w),
+              border: Border.all(
+                color: Styles.primaryColor,
+                width: 2.0,
               ),
-              Positioned(
-                bottom: 1.h,
-                right: 0,
-                left: 0,
-                child: Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: Styles.appBarStyle,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(6.w),
+              child: Stack(
+                children: [
+                  Image(
+                    height: 100.h,
+                    width: 100.w,
+                    fit: BoxFit.cover,
+                    image: AssetImage(image),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(6.w),
                 ),
-              ),
-            ],
+                gradient: LinearGradient(colors: [
+                  Styles.primaryColor.withOpacity(.60),
+                  Colors.transparent,
+                ], begin: Alignment.bottomCenter, end: Alignment.topCenter)),
           ),
-        ),
+          Positioned(
+            bottom: 2.h,
+            right: 0,
+            left: 0,
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: Styles.appBarStyle,
+            ),
+          ),
+        ],
       ),
     );
   }
