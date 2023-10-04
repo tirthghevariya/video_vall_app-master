@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
+import 'package:video_vall_app/helper/facebook_admanager.dart';
 
 import '../Resources/Routes/routes_name.dart';
 
@@ -14,6 +16,7 @@ class SplashScreen2 extends StatefulWidget {
 }
 
 class _SplashScreen2State extends State<SplashScreen2> {
+  FacebookAdController facebookAdController = Get.put(FacebookAdController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,6 +60,11 @@ class _SplashScreen2State extends State<SplashScreen2> {
                     fontWeight: FontWeight.w500),
               ),
               const Spacer(),
+              FacebookBannerAd(
+                bannerSize: BannerSize.STANDARD,
+                keepAlive: true,
+                placementId: bannerPlacementId,
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Styles.primaryColor,

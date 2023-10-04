@@ -3,6 +3,7 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/Routes/routes_name.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
+import 'package:video_vall_app/helper/facebook_admanager.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -19,6 +21,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  FacebookAdController facebookAdController = Get.put(FacebookAdController());
   navigate() {
     Future.delayed(Duration(seconds: 3), () {
       Get.toNamed(RoutesName.splashScreen2);
@@ -56,7 +60,10 @@ class _SplashScreenState extends State<SplashScreen> {
         navigate();
       }
     }); // using this listener, you can get the medium of connection as well.
-
+    /*FacebookAudienceNetwork.init(
+      testingId: "9415d081-9c2b-4cad-9326-23389d96fc9c",
+      iOSAdvertiserTrackingEnabled: true,
+    );*/
     super.initState();
   }
 

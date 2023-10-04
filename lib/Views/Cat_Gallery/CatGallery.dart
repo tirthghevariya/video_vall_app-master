@@ -14,6 +14,8 @@ class CategoryGallery extends StatefulWidget {
 }
 
 class _CategoryGalleryState extends State<CategoryGallery> {
+
+  FacebookAdController facebookAdController = Get.put(FacebookAdController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +26,10 @@ class _CategoryGalleryState extends State<CategoryGallery> {
           statusBarIconBrightness: Brightness.light,
         ),
         backgroundColor: Styles.primaryColor,
-        leading: BackButton(color: Styles.appBarWhite),
+        leading: BackButton(color: Styles.appBarWhite,onPressed: () {
+          facebookAdController.showFacebookInterstitialAd();
+          Get.back();
+        },),
         leadingWidth: 5.w,
         title: Text(
           "Live Video Call",
@@ -63,6 +68,11 @@ class _CategoryGalleryState extends State<CategoryGallery> {
             ),
             SizedBox(
               height: 3.h,
+            ),
+            FacebookBannerAd(
+              bannerSize: BannerSize.STANDARD,
+              keepAlive: true,
+              placementId: bannerPlacementId,
             ),
             Expanded(
               child: GridView.count(

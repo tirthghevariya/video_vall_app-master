@@ -1,10 +1,12 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:facebook_audience_network/facebook_audience_network.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
+import 'package:video_vall_app/helper/facebook_admanager.dart';
 
 import '../../Resources/Routes/routes_name.dart';
 
@@ -22,6 +24,7 @@ class _GenderSelectionState extends State<GenderSelection> {
       isMaleSelected = !isMaleSelected;
     });
   }
+  FacebookAdController facebookAdController = Get.put(FacebookAdController());
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,10 @@ class _GenderSelectionState extends State<GenderSelection> {
           statusBarIconBrightness: Brightness.light,
         ),
         backgroundColor: Styles.primaryColor,
-        leading: BackButton(color: Styles.appBarWhite),
+        leading: BackButton(color: Styles.appBarWhite,onPressed: () {
+          facebookAdController.showFacebookInterstitialAd();
+          Get.back();
+        },),
         leadingWidth: 5.w,
         title: Text(
           "Live Video Call",
@@ -75,6 +81,12 @@ class _GenderSelectionState extends State<GenderSelection> {
                     style: Styles.appBarStyle.copyWith(fontSize: 20.sp),
                   ),
                 ),
+                FacebookBannerAd(
+                  bannerSize: BannerSize.STANDARD,
+                  keepAlive: true,
+                  placementId: bannerPlacementId,
+                ),
+                SizedBox(height: 3.h,),
                 Positioned(
                   top: 50.h,
                   left: 10.w,
@@ -136,6 +148,12 @@ class _GenderSelectionState extends State<GenderSelection> {
                     ),
                   ),
                 ),
+                FacebookBannerAd(
+                  bannerSize: BannerSize.STANDARD,
+                  keepAlive: true,
+                  placementId: bannerPlacementId,
+                ),
+                SizedBox(height: 3.h,),
                 Positioned(
                   top: 75.h,
                   left: 5.w,
@@ -149,7 +167,9 @@ class _GenderSelectionState extends State<GenderSelection> {
                       ),
                     ),
                     onPressed: () {
+                      facebookAdController.showFacebookInterstitialAd();
                       Get.toNamed(RoutesName.catGallery);
+
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
