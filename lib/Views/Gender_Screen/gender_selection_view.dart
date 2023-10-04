@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
@@ -27,6 +28,10 @@ class _GenderSelectionState extends State<GenderSelection> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        systemOverlayStyle: const SystemUiOverlayStyle(
+          statusBarColor: Colors.black,
+          statusBarIconBrightness: Brightness.light,
+        ),
         backgroundColor: Styles.primaryColor,
         leading: BackButton(color: Styles.appBarWhite),
         leadingWidth: 5.w,

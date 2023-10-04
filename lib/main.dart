@@ -11,7 +11,6 @@ void main() async {
   await di.init();
 }
 
-//https://mibhhsb.github.io/bwcgbhbswf/db.json
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -24,6 +23,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: ThemeData(
+              scaffoldBackgroundColor: const Color(0xff161921),
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),

@@ -2,12 +2,14 @@
 
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/Routes/routes_name.dart';
+import 'package:video_vall_app/Resources/app_style.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   navigate() {
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       Get.toNamed(RoutesName.splashScreen2);
     });
   }
@@ -68,78 +70,49 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: (ConnectivityResult.none == true)
-          ? SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Spacer(),
-                    Image.asset(
-                      "assets/images/camera.png",
-                      scale: 5,
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Video Call",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      textAlign: TextAlign.center,
-                      "Global Call will help you to meet new people daily and for video chats with them",
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    Spacer(),
-                    Center(
-                      child: LoadingAnimationWidget.fourRotatingDots(
-                        // leftDotColor: const Color(0xFF1A1A3F),
-                        // rightDotColor: const Color(0xFFEA3799),
-                        size: 50, color: Colors.white,
-                      ),
-                    ),
-                    SizedBox(height: 20),
-                  ],
+        backgroundColor: Colors.black,
+        body: Container(
+          color: Color(0xff161922),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 3.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Spacer(),
+                Image.asset(
+                  "assets/images/camera.png",
+                  scale: 5,
                 ),
-              ),
-            )
-          : Scaffold(
-              appBar: AppBar(title: Text("Check Connection")),
-              body: SingleChildScrollView(
-                  child: Column(
-                children: [
-                  Container(
-                    child:
-                        errorMsg("No Internet Connection Available", isOffLine),
-                    //to show internet connection message on offline = true.
-                  ),
-                  Container(
-                      //this is your content
-                      margin: EdgeInsets.all(30),
-                      width: double.infinity,
-                      child: Center(
-                          child: Text("Check Connections",
-                              style: TextStyle(fontSize: 20))))
-                ],
-              ))),
-    );
+                SizedBox(height: 2.h),
+                Text("Global Video Call",
+                    style: Styles.appBarStyle.copyWith(
+                      fontSize: 26.sp,
+                    )),
+                Text(
+                    textAlign: TextAlign.center,
+                    "Global Call will help you to meet new people daily and for video chats with them",
+                    style: Styles.findExactSame.copyWith(
+                        fontWeight: FontWeight.w500, fontSize: 12.sp)),
+                Spacer(),
+                Center(child: SpinKitFadingCircle(
+                  itemBuilder: (BuildContext context, int index) {
+                    return DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: index.isEven ? Colors.white : Colors.grey,
+                      ),
+                    );
+                  },
+                )),
+                SizedBox(height: 5.h),
+              ],
+            ),
+          ),
+        ));
   }
 
   Widget errorMsg(String text, bool show) {
-    //error message widget.
     if (show == true) {
-      //if error is true then show error message box
       return Container(
         padding: EdgeInsets.all(10.00),
         margin: EdgeInsets.only(bottom: 10.00),
@@ -151,12 +124,10 @@ class _SplashScreenState extends State<SplashScreen> {
           ), // icon for error message
 
           Text(text, style: TextStyle(color: Colors.white)),
-          //show error message text
         ]),
       );
     } else {
       return Container();
-      //if error is false, return empty container.
     }
   }
 }
