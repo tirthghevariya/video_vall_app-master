@@ -80,7 +80,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
         borderRadius: BorderRadius.circular(12.0),
       ),
       child: SizedBox(
-        height: 35.h,
+        height: 32.h,
         width: 60.w,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,

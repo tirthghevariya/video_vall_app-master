@@ -21,7 +21,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   FacebookAdController facebookAdController = Get.put(FacebookAdController());
   navigate() {
     Future.delayed(Duration(seconds: 3), () {
@@ -86,12 +85,13 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Spacer(),
-                Image.asset(
-                  "assets/images/camera.png",
-                  scale: 5,
+                SizedBox(
+                  height: 20.h,
                 ),
-                SizedBox(height: 2.h),
+                Image.asset(
+                  "assets/images/logo.png",
+                  scale: 2,
+                ),
                 Text("Global Video Call",
                     style: Styles.appBarStyle.copyWith(
                       fontSize: 26.sp,

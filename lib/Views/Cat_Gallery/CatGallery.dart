@@ -16,7 +16,6 @@ class CategoryGallery extends StatefulWidget {
 }
 
 class _CategoryGalleryState extends State<CategoryGallery> {
-
   FacebookAdController facebookAdController = Get.put(FacebookAdController());
   @override
   Widget build(BuildContext context) {
@@ -28,10 +27,13 @@ class _CategoryGalleryState extends State<CategoryGallery> {
           statusBarIconBrightness: Brightness.light,
         ),
         backgroundColor: Styles.primaryColor,
-        leading: BackButton(color: Styles.appBarWhite,onPressed: () {
-          facebookAdController.showFacebookInterstitialAd();
-          Get.back();
-        },),
+        leading: BackButton(
+          color: Styles.appBarWhite,
+          onPressed: () {
+            facebookAdController.showFacebookInterstitialAd();
+            Get.back();
+          },
+        ),
         leadingWidth: 5.w,
         title: Text(
           "Live Video Call",
@@ -97,9 +99,9 @@ class _CategoryGalleryState extends State<CategoryGallery> {
                   MyGridItem('Stranger Call', image: 'assets/cat_image/4.jpg'),
                   MyGridItem('Live Girls', image: 'assets/cat_image/5.jpg'),
                   MyGridItem('Instant Call', image: 'assets/cat_image/6.jpg'),
-                  MyGridItem('Only Girls', image: 'assets/cat_image/7.jpg'),
+                  MyGridItem('Only Girls', image: 'assets/cat_image/8.jpg'),
                   MyGridItem('Out of our Country Call',
-                      image: 'assets/cat_image/8.jpg'),
+                      image: 'assets/cat_image/7.jpg'),
                 ],
               ),
             )
@@ -125,7 +127,7 @@ class MyGridItem extends StatelessWidget {
       child: Stack(
         children: [
           Container(
-            height: 80.h, // Increase the height as desired
+            height: 80.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(6.w),
               border: Border.all(
