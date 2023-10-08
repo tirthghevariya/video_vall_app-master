@@ -30,7 +30,6 @@ class _CategoryGalleryState extends State<CategoryGallery> {
         leading: BackButton(
           color: Styles.appBarWhite,
           onPressed: () {
-            facebookAdController.showFacebookInterstitialAd();
             Get.back();
           },
         ),
@@ -76,7 +75,7 @@ class _CategoryGalleryState extends State<CategoryGallery> {
             FacebookBannerAd(
               bannerSize: BannerSize.STANDARD,
               keepAlive: true,
-              placementId: bannerPlacementId,
+              placementId: facebookAdController.faceBookBannerAdPlacementID.value,
             ),
             Expanded(
               child: GridView.count(
@@ -122,6 +121,7 @@ class MyGridItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        Get.find<FacebookAdController>().showFacebookInterstitialAd();
         Get.toNamed(RoutesName.matchCall);
       },
       child: Stack(

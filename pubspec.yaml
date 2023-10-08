@@ -48,6 +48,8 @@ dependencies:
   http: ^1.1.0
   logger: ^1.1.0
   facebook_audience_network: ^1.0.1
+  flutter_windowmanager: ^0.2.0
+  webview_flutter_plus: ^0.3.0+2
 
 dev_dependencies:
   flutter_test:

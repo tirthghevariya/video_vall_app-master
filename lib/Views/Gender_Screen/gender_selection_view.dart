@@ -25,8 +25,6 @@ class _GenderSelectionState extends State<GenderSelection> {
     });
   }
 
-  FacebookAdController facebookAdController = Get.put(FacebookAdController());
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,7 +38,6 @@ class _GenderSelectionState extends State<GenderSelection> {
         leading: BackButton(
           color: Styles.appBarWhite,
           onPressed: () {
-            facebookAdController.showFacebookInterstitialAd();
             Get.back();
           },
         ),
@@ -152,10 +149,10 @@ class _GenderSelectionState extends State<GenderSelection> {
                     ),
                   ),
                 ),
-                // FacebookBannerAd(
+                //FacebookBannerAd(
                 //   bannerSize: BannerSize.STANDARD,
                 //   keepAlive: true,
-                //   placementId: bannerPlacementId,
+                //   placementId: Get.find<FacebookAdController>().faceBookBannerAdPlacementID.value,
                 // ),
 
                 Positioned(
@@ -171,7 +168,7 @@ class _GenderSelectionState extends State<GenderSelection> {
                       ),
                     ),
                     onPressed: () {
-                      facebookAdController.showFacebookInterstitialAd();
+                      Get.find<FacebookAdController>().showFacebookInterstitialAd();
                       Get.toNamed(RoutesName.catGallery);
                     },
                     child: Row(

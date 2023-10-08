@@ -3,10 +3,12 @@ import 'dart:developer';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:flutter_windowmanager/flutter_windowmanager.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 import 'package:video_player/video_player.dart';
 import 'package:video_vall_app/Resources/Routes/routes_name.dart';
+import 'package:video_vall_app/helper/facebook_admanager.dart';
 import '../../Resources/app_style.dart';
 
 class VideoCallScreen extends StatefulWidget {
@@ -24,6 +26,7 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
   late List<CameraDescription> cameras;
   late CameraController _cameraController;
   int selectedCameraIndex = 1;
+  bool isSecureMode = false;
   dynamic data;
   @override
   void initState() {
@@ -43,6 +46,9 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
       log('Error: widget.url is null');
     }
     _initializeCamera();
+    FlutterWindowManager.addFlags(
+      FlutterWindowManager.FLAG_SECURE,
+    );
     super.initState();
   }
 
@@ -156,6 +162,9 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                     ),
                   ),
                   onTap: () async {
+                    Get.find<FacebookAdController>()
+                        .showFacebookInterstitialAd();
+
                     Navigator.of(context).popUntil((route) {
                       return route.settings.name == RoutesName.matchCall;
                     });

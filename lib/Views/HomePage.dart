@@ -1,12 +1,12 @@
 import 'package:facebook_audience_network/facebook_audience_network.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
+import 'package:video_vall_app/Views/policywebview.dart';
 import 'package:video_vall_app/helper/facebook_admanager.dart';
-
 import '../Resources/Routes/routes_name.dart';
 
 class SplashScreen2 extends StatefulWidget {
@@ -18,6 +18,7 @@ class SplashScreen2 extends StatefulWidget {
 
 class _SplashScreen2State extends State<SplashScreen2> {
   FacebookAdController facebookAdController = Get.put(FacebookAdController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,10 +32,26 @@ class _SplashScreen2State extends State<SplashScreen2> {
         leading: Container(),
         leadingWidth: 0,
         actions: [
-          Text("Policy", style: Styles.appBarStyle),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const PolicyWebViewPage(
+                  url:
+                      "https://gydfgykhbgg.blogspot.com/2023/07/privacy-policy-we-have-built-app-as.html",
+                ),
+              ));
+            },
+            child: Text(
+              'Policy',
+              style: Styles.appBarStyle,
+            ),
+          ),
           const SizedBox(width: 10)
         ],
-        title: Text("Live Video Call", style: Styles.appBarStyle),
+        title: Text(
+          "Live Video Call",
+          style: Styles.appBarStyle,
+        ),
       ),
       body: SafeArea(
         child: Container(
@@ -64,7 +81,8 @@ class _SplashScreen2State extends State<SplashScreen2> {
               FacebookBannerAd(
                 bannerSize: BannerSize.STANDARD,
                 keepAlive: true,
-                placementId: bannerPlacementId,
+                placementId:
+                    facebookAdController.faceBookBannerAdPlacementID.value,
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
