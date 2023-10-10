@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sizer/sizer.dart';
 import 'package:video_vall_app/Resources/app_style.dart';
 import 'package:video_vall_app/Views/policywebview.dart';
 import 'package:video_vall_app/helper/facebook_admanager.dart';
@@ -41,16 +42,14 @@ class _SplashScreen2State extends State<SplashScreen2> {
                 ),
               ));
             },
-            child: Text(
-              'Policy',
-              style: Styles.appBarStyle,
-            ),
+            child: Text('Policy',
+                style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp)),
           ),
           const SizedBox(width: 10)
         ],
         title: Text(
           "Live Video Call",
-          style: Styles.appBarStyle,
+          style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
         ),
       ),
       body: SafeArea(

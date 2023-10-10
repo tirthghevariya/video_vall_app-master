@@ -9,6 +9,7 @@ import 'package:video_vall_app/Resources/app_style.dart';
 import 'package:video_vall_app/helper/facebook_admanager.dart';
 
 import '../../Resources/Routes/routes_name.dart';
+import '../policywebview.dart';
 
 class GenderSelection extends StatefulWidget {
   const GenderSelection({Key? key}) : super(key: key);
@@ -42,9 +43,24 @@ class _GenderSelectionState extends State<GenderSelection> {
           },
         ),
         leadingWidth: 5.w,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const PolicyWebViewPage(
+                  url:
+                      "https://gydfgykhbgg.blogspot.com/2023/07/privacy-policy-we-have-built-app-as.html",
+                ),
+              ));
+            },
+            child: Text('Policy',
+                style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp)),
+          ),
+          const SizedBox(width: 10)
+        ],
         title: Text(
           "Live Video Call",
-          style: Styles.appBarStyle,
+          style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
         ),
       ),
       body: SizedBox(
@@ -70,7 +86,10 @@ class _GenderSelectionState extends State<GenderSelection> {
                   child: Text(
                     "Find exactly the",
                     textAlign: TextAlign.center,
-                    style: Styles.findExactSame,
+                    style: Styles.commonButtonTheme.copyWith(
+                        fontSize: 15.sp,
+                        color: Colors.grey,
+                        fontWeight: FontWeight.w500),
                   ),
                 ),
                 Positioned(
@@ -168,7 +187,8 @@ class _GenderSelectionState extends State<GenderSelection> {
                       ),
                     ),
                     onPressed: () {
-                      Get.find<FacebookAdController>().showFacebookInterstitialAd();
+                      Get.find<FacebookAdController>()
+                          .showFacebookInterstitialAd();
                       Get.toNamed(RoutesName.catGallery);
                     },
                     child: Row(

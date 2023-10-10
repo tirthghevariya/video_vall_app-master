@@ -157,7 +157,8 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                           vertical: 1.5.h, horizontal: 7.w),
                       child: Text(
                         'Yes',
-                        style: Styles.appBarStyle,
+                        style:
+                            Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
                       ),
                     ),
                   ),
@@ -191,7 +192,8 @@ class _VideoCallScreenState extends State<VideoCallScreen> {
                           vertical: 1.5.h, horizontal: 7.w),
                       child: Text(
                         'NO',
-                        style: Styles.appBarStyle,
+                        style:
+                            Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
                       ),
                     ),
                   ),

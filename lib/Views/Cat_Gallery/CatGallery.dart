@@ -7,6 +7,7 @@ import 'package:video_vall_app/Resources/app_style.dart';
 import 'package:video_vall_app/helper/facebook_admanager.dart';
 
 import '../../Resources/Routes/routes_name.dart';
+import '../policywebview.dart';
 
 class CategoryGallery extends StatefulWidget {
   const CategoryGallery({Key? key}) : super(key: key);
@@ -34,9 +35,24 @@ class _CategoryGalleryState extends State<CategoryGallery> {
           },
         ),
         leadingWidth: 5.w,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const PolicyWebViewPage(
+                  url:
+                      "https://gydfgykhbgg.blogspot.com/2023/07/privacy-policy-we-have-built-app-as.html",
+                ),
+              ));
+            },
+            child: Text('Policy',
+                style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp)),
+          ),
+          const SizedBox(width: 10)
+        ],
         title: Text(
           "Live Video Call",
-          style: Styles.appBarStyle,
+          style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
         ),
       ),
       body: Container(
@@ -75,7 +91,8 @@ class _CategoryGalleryState extends State<CategoryGallery> {
             FacebookBannerAd(
               bannerSize: BannerSize.STANDARD,
               keepAlive: true,
-              placementId: facebookAdController.faceBookBannerAdPlacementID.value,
+              placementId:
+                  facebookAdController.faceBookBannerAdPlacementID.value,
             ),
             Expanded(
               child: GridView.count(

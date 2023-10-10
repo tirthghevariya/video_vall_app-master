@@ -10,6 +10,7 @@ import 'package:video_vall_app/helper/facebook_admanager.dart';
 import '../../Resources/Routes/routes_name.dart';
 import '../../controller/video_controller.dart';
 import '../../Resources/app_style.dart';
+import '../policywebview.dart';
 
 class MatchCallScreen extends StatefulWidget {
   const MatchCallScreen({Key? key}) : super(key: key);
@@ -21,7 +22,8 @@ class MatchCallScreen extends StatefulWidget {
 class _MatchCallScreenState extends State<MatchCallScreen> {
   final logger = Logger();
   final VideoController videoController = Get.put(VideoController());
-  final FacebookAdController facebookAdController = Get.put(FacebookAdController());
+  final FacebookAdController facebookAdController =
+      Get.put(FacebookAdController());
 
   @override
   void initState() {
@@ -41,9 +43,24 @@ class _MatchCallScreenState extends State<MatchCallScreen> {
         backgroundColor: Styles.primaryColor,
         leading: BackButton(color: Styles.appBarWhite),
         leadingWidth: 5.w,
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const PolicyWebViewPage(
+                  url:
+                      "https://gydfgykhbgg.blogspot.com/2023/07/privacy-policy-we-have-built-app-as.html",
+                ),
+              ));
+            },
+            child: Text('Policy',
+                style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp)),
+          ),
+          const SizedBox(width: 10)
+        ],
         title: Text(
           "Live Video Call",
-          style: Styles.appBarStyle,
+          style: Styles.commonButtonTheme.copyWith(fontSize: 14.sp),
         ),
       ),
       body: GetBuilder<VideoController>(
@@ -70,12 +87,14 @@ class _MatchCallScreenState extends State<MatchCallScreen> {
                             Text(
                               "Congratulations",
                               textAlign: TextAlign.center,
-                              style: Styles.appBarStyle.copyWith(fontSize: 22.sp),
+                              style:
+                                  Styles.appBarStyle.copyWith(fontSize: 22.sp),
                             ),
                           ],
                         ),
                         const Image(
-                            image: AssetImage('assets/images/best_matches.jpg')),
+                            image:
+                                AssetImage('assets/images/best_matches.jpg')),
                         SizedBox(
                           height: 3.h,
                         ),
@@ -109,17 +128,20 @@ class _MatchCallScreenState extends State<MatchCallScreen> {
                             );
                           },
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 10.00),
+                            padding:
+                                const EdgeInsets.symmetric(vertical: 10.00),
                             child: Text(
                               'Match Now',
-                              style: Styles.appBarStyle,
+                              style: Styles.commonButtonTheme
+                                  .copyWith(fontSize: 14.sp),
                             ),
                           ),
                         ),
                         FacebookNativeAd(
                           adType: NativeAdType.NATIVE_AD_HORIZONTAL,
                           keepAlive: true,
-                          placementId: facebookAdController.faceBookNativeAdPlacementID.value,
+                          placementId: facebookAdController
+                              .faceBookNativeAdPlacementID.value,
                         )
                       ],
                     ),

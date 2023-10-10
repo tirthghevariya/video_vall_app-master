@@ -56,7 +56,7 @@ class Styles {
       color: const Color(0XFF8F9DC5));
 
   static TextStyle appBarStyle = GoogleFonts.montserrat(
-      fontWeight: FontWeight.bold, fontSize: 14.sp, color: Colors.white);
+      fontWeight: FontWeight.bold, fontSize: 14.sp, color: appBarWhite);
 
   static TextStyle commonButtonTheme = GoogleFonts.montserrat(
       color: appBarWhite, fontWeight: FontWeight.bold, fontSize: 16.sp);
